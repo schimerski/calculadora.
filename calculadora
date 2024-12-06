@@ -1,0 +1,103 @@
+# calculadora.py
+
+def adicionar(a, b):
+    """Retorna a soma de a e b."""
+    return a + b
+
+def subtrair(a, b):
+    """Retorna a subtração de a por b."""
+    return a - b
+
+def multiplicar(a, b):
+    """Retorna o produto de a e b."""
+    return a * b
+
+def dividir(a, b):
+    """Retorna a divisão de a por b. Se b for 0, retorna erro."""
+    if b == 0:
+        return "Erro: Divisão por zero"
+    return a / b
+
+# Testes automáticos
+
+def test_adicionar():
+    assert adicionar(2, 3) == 5, "Erro no teste de adição"
+    assert adicionar(-1, 1) == 0, "Erro no teste de adição"
+    assert adicionar(0, 0) == 0, "Erro no teste de adição"
+    print("Todos os testes de adição passaram!")
+
+def test_subtrair():
+    assert subtrair(5, 3) == 2, "Erro no teste de subtração"
+    assert subtrair(-1, 1) == -2, "Erro no teste de subtração"
+    assert subtrair(0, 0) == 0, "Erro no teste de subtração"
+    print("Todos os testes de subtração passaram!")
+
+def test_multiplicar():
+    assert multiplicar(2, 3) == 6, "Erro no teste de multiplicação"
+    assert multiplicar(-1, 1) == -1, "Erro no teste de multiplicação"
+    assert multiplicar(0, 10) == 0, "Erro no teste de multiplicação"
+    print("Todos os testes de multiplicação passaram!")
+
+def test_dividir():
+    assert dividir(6, 3) == 2, "Erro no teste de divisão"
+    assert dividir(5, 2) == 2.5, "Erro no teste de divisão"
+    assert dividir(1, 0) == "Erro: Divisão por zero", "Erro no teste de divisão"
+    print("Todos os testes de divisão passaram!")
+
+# Função para rodar os testes automaticamente
+
+def rodar_testes():
+    test_adicionar()
+    test_subtrair()
+    test_multiplicar()
+    test_dividir()
+
+# Função principal para executar o menu da calculadora
+def executar_calculadora():
+    print("Calculadora simples em Python")
+    
+    while True:
+        print("\nEscolha a operação:")
+        print("1. Adição")
+        print("2. Subtração")
+        print("3. Multiplicação")
+        print("4. Divisão")
+        print("5. Sair")
+        
+        opcao = input("Escolha uma opção (1-5): ")
+        
+        if opcao == "1":
+            a = float(input("Digite o primeiro número: "))
+            b = float(input("Digite o segundo número: "))
+            print(f"{a} + {b} = {adicionar(a, b)}")
+        
+        elif opcao == "2":
+            a = float(input("Digite o primeiro número: "))
+            b = float(input("Digite o segundo número: "))
+            print(f"{a} - {b} = {subtrair(a, b)}")
+        
+        elif opcao == "3":
+            a = float(input("Digite o primeiro número: "))
+            b = float(input("Digite o segundo número: "))
+            print(f"{a} * {b} = {multiplicar(a, b)}")
+        
+        elif opcao == "4":
+            a = float(input("Digite o primeiro número: "))
+            b = float(input("Digite o segundo número: "))
+            resultado = dividir(a, b)
+            print(f"{a} / {b} = {resultado}")
+        
+        elif opcao == "5":
+            print("Saindo da calculadora...")
+            break
+        
+        else:
+            print("Opção inválida! Tente novamente.")
+
+if __name__ == "__main__":
+    # Rodar os testes automaticamente ao iniciar o script
+    print("Iniciando os testes...")
+    rodar_testes()
+
+    # Após os testes, rodar a calculadora
+    executar_calculadora()
